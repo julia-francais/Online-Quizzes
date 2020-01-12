@@ -27,7 +27,6 @@
     <div class="row">
         <form action=" " method = "post">
             <% for(let question of quizz.questions) { %> 
-            REPOMSE<%console.log (question.good_answer.getDescription()); %>
 
             <div class="col question">
                 <span class="level level--<%= question.levels.getName().toLowerCase() %>"><%= question.levels.getName() %></span>

@@ -64,18 +64,23 @@ const quizzController = {
 
         let score= 0;
         let good_answers= [];
+        let goodAnswerUser = [];
+        let badAnswerUser = [];
         for (let question of quizz.questions) {
             good_answers.push(question.good_answer.getDescription())
         }
         console.log(good_answers);
-        for (let question in request.body){
-            for(let answer of good_answers){
-                if(request.body[question] === answer)
-                score += 1;
+            for (let question in request.body){
+                for(let answer of good_answers){
+                    if(request.body[question] === answer){ 
+                    score += 1;
+                    goodAnswerUser.push(answer)
+                    }
+                }
             }
-        }
-        response.render('score', {score: score}); 
-    },
+            response.render('score', {score: score, goodAnswers: goodAnswerUser}); 
+
+    }
 
 
 };

@@ -2,6 +2,14 @@
 
 <div>
     <h2> Votre score est de : <%= score %> </h2>
+
+        <h3> Les reponses suivantes etaient bonnes: </h3>
+            <ul>
+                <%for (let answer of goodAnswers) { %>
+                <li> <%= answer %> </li>
+                <%} %>
+            </ul>
+
 </div>
 
 
