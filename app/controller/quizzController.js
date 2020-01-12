@@ -41,7 +41,7 @@ const quizzController = {
                     { association: "tags" }
                 ]
             });
-            response.render('quizz', { quizz: quizz });
+            response.render('play_quizz', { quizz: quizz });
         } catch (error) {
             response.status(500).send(error);
         }

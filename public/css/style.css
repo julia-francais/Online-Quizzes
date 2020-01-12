@@ -29,6 +29,12 @@ a {
   color: yellowgreen;
 }
 
+ul.answers{
+  display: flex;
+  flex-direction: column;
+}
+
+
 .container {
   width: 900px;
   margin: auto;
@@ -36,6 +42,10 @@ a {
   padding: 1.25rem;
   margin-top: 0.625rem;
   border: 1px solid #888;
+} 
+
+.radio_buttons {
+  display: inline-block;
 }
 
 .row {

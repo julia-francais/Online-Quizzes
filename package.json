@@ -1,7 +1,7 @@
 {
   "name": "oQuizz",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Jour 7 : Atelier Solo, Sprint 3",
   "main": "test.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
