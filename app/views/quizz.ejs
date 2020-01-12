@@ -1,0 +1,27 @@
+
+<%- include('partials/header') %>
+
+<section>
+<h1><%= quizz.getTitle() %></h1>
+<p><%= quizz.getDescription() %></p>
+<p>by <%= quizz.getAuthor() %></p>
+<ul>
+    <% for(let tag of quizz.tags) { %>
+        <li><%=tag.getName() %></li>
+    <% } %>
+</ul>
+</section>
+
+<div class="row">
+<% for(let question of quizz.questions) { %>
+  <div class="col">
+      <p><%= question.levels.getName() %></p>
+      <h3><%= question.getQuestion() %></h3>
+      <h5><%= question.getAnecdote() %></h5>
+      <p><%= question.getWiki() %></p>
+  </div>
+<% } %>
+</div>
+
+
+<%- include('partials/footer') %>
