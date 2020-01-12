@@ -30,6 +30,11 @@ app.use(userMiddleware);
 const router = require('./app/router');
 app.use(router);
 
+
+app.use(express.urlencoded({
+    extended: true
+}));
+
 // lancement du serveur
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);

@@ -97,6 +97,7 @@ User.hasMany(Quizz, {
   as: "quizzes"
 });
 
+
 //Relation avec les questions
 
 /*

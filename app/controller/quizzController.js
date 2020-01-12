@@ -37,11 +37,12 @@ const quizzController = {
             const quizz = await Quizz.findByPk(quizzId, {
                 include: [
                     { association: "author" },
-                    { association: "questions", include: ["answers", "levels"] },
+                    { association: "questions", include: ["answers", "levels", "good_answer"] },
                     { association: "tags" }
                 ]
             });
             if(request.session.user){
+
                 response.render('play_quizz', { quizz: quizz });
             } else {
                 response.render('quizz', { quizz: quizz });
@@ -53,8 +54,29 @@ const quizzController = {
     },
 
     submitAnswers: async (request, response) => {
-        response.redirect('/'); 
-    }
+            //    try {
+                const quizzId = parseInt(request.params.id);
+                const quizz = await Quizz.findByPk(quizzId, {
+                    include: [
+                        { association: "questions", include: ["good_answer"] },
+                    ]
+                });
+
+        let score= 0;
+        let good_answers= [];
+        for (let question of quizz.questions) {
+            good_answers.push(question.good_answer.getDescription())
+        }
+        console.log(good_answers);
+        for (let question in request.body){
+            for(let answer of good_answers){
+                if(request.body[question] === answer)
+                score += 1;
+            }
+        }
+        response.render('score', {score: score}); 
+    },
+
 
 };
 

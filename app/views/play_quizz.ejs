@@ -27,7 +27,7 @@
     <div class="row">
         <form action=" " method = "post">
             <% for(let question of quizz.questions) { %> 
-
+            REPOMSE<%console.log (question.good_answer.getDescription()); %>
 
             <div class="col question">
                 <span class="level level--<%= question.levels.getName().toLowerCase() %>"><%= question.levels.getName() %></span>
@@ -39,7 +39,7 @@
                     <ul class="answers">
                         <% for(let index in question.answers){ %>
                             <div class="radio_button">
-                                <input type="radio" name="<%=question.levels.getName() %>"><label><%= parseInt(index) + 1 %>. <%= question.answers[index].getDescription() %></label>
+                                <input type="radio" name="<%=question.getQuestion()%>" value="<%= question.answers[index].getDescription() %>"><label><%= parseInt(index) + 1 %>. <%= question.answers[index].getDescription() %></label>
                             </div>
                         <% } %>
                     </ul>    
