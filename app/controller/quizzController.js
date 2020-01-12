@@ -41,11 +41,19 @@ const quizzController = {
                     { association: "tags" }
                 ]
             });
-            response.render('play_quizz', { quizz: quizz });
+            if(request.session.user){
+                response.render('play_quizz', { quizz: quizz });
+            } else {
+                response.render('quizz', { quizz: quizz });
+            }
         } catch (error) {
             response.status(500).send(error);
         }
 
+    },
+
+    submitAnswers: async (request, response) => {
+        response.redirect('/'); 
     }
 
 };

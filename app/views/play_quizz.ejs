@@ -12,42 +12,50 @@
  <% } %>
 </div>
 
+<div class="quizz"> 
 
-<div>
-    <h4> 
-        <%= quizz.getDescription() %>
-    </h4>
+    <div>
+        <h4> 
+            <%= quizz.getDescription() %>
+        </h4>
+    </div>
+
+    <div>
+        <p>by <%= quizz.getAuthor() %></p>
+    </div>
+
+    <div class="row">
+        <form action=" " method = "post">
+            <% for(let question of quizz.questions) { %> 
+
+
+            <div class="col question">
+                <span class="level level--<%= question.levels.getName().toLowerCase() %>"><%= question.levels.getName() %></span>
+                <div class="question__question">
+                    <%= question.getQuestion() %>
+                </div>
+                
+                <div>
+                    <ul class="answers">
+                        <% for(let index in question.answers){ %>
+                            <div class="radio_button">
+                                <input type="radio" name="<%=question.levels.getName() %>"><label><%= parseInt(index) + 1 %>. <%= question.answers[index].getDescription() %></label>
+                            </div>
+                        <% } %>
+                    </ul>    
+                </div>
+            </div>
+            <% } %>
+    </div>
+
 </div>
-
-<div>
-    <p>by <%= quizz.getAuthor() %></p>
-</div>
-
-<div class="row">
-
-    <% for(let question of quizz.questions) { %> 
-
-      <div class="col question">
-          <span class="level level--<%= question.levels.getName().toLowerCase() %>"><%= question.levels.getName() %></span>
-          <div class="question__question">
-              <%= question.getQuestion() %>
-          </div>
-          <div>
-            <form action=" " method = "post">
-              <ul class="answers">
-                <% for(let index in question.answers){ %>
-                    <div class="radio_button">
-                        <input type="radio" name="<%=question.levels.getName() %>"><label><%= parseInt(index) + 1 %>. <%= question.answers[index].getDescription() %></label>
-                    </div>
-                <% } %>
-              </ul> 
-            </form>        
-          </div>
-      </div>
-
+        <div>
+            <button type="submit">Envoyer</button>
+        </div>
+        
     
-    <% } %>
-  
-</div>
+        
+    
+</form>
 
 <%- include('partials/footer') %>
