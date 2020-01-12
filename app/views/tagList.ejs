@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+<div>
+  <h2> Bienvenue sur O'Quiz </h2>
+  <p>
+
+    Une application sympa pour répondre à questions cool.
+
+  </p>
+</div>
+
+<div class="row">
+  <ul>
+    <% for (let tag of tags) { %>
+    <li class="tag tag--<%= tag.getName().toLowerCase() %>">
+      <a href="/tag/<%= tag.id %>">
+        <%= tag.getName() %>
+      </a>
+    </li>
+    <% } %>
+  </ul>
+</div>
+
+<%- include('partials/footer') %>

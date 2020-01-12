@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+
+<div class="row">
+
+    <h3>Mon Compte</h3>
+
+</div>
+
+<%# version avec boucle mais qui retourne des informations non essentielles 
+     for(let info in user) {
+
+        <div class="row">
+            <div class="col">info: user[info]</div>
+        </div>
+
+     } #%>
+
+<div class="row">Nom: <%= user.lastname %></div>
+<div class="row">Prénom: <%= user.firstname %> </div>
+<div class="row">Email: <%= user.email %></div>
+<div class="row">Role: <%= user.role %></div>
+
+<%- include('partials/footer') %>

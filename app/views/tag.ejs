@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+<section>
+    <h1><%= tag.getName() %></h1>
+</section>
+
+<div class="row">
+    <% for(let quizz of tag.quizzes) { %>
+    <div class="col">
+        <h3><a href="/quizz/<%= quizz.getId() %>"><%= quizz.getTitle() %></a></h3>
+        <h5><%= quizz.getDescription() %></h5>
+        <p>by <%= quizz.getAuthor() %></p>
+    </div>
+    <% } %>
+</div>
+
+
+<%- include('partials/footer') %>

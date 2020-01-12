@@ -1,0 +1,20 @@
+vérifier qu'on est bien en invite de commande de type
+
+    postgres@mint
+
+Ensuite vous devez éditer le fichier de conf
+
+    sudo vi /etc/postgresql/11/main/pg_hba.conf
+
+Afin de modifier la ligne 
+
+    local all all peer 
+    en 
+    local all all md5
+
+Il faut utiliser la touche I
+
+Une fois modifier utilisez la touche "Echap" pui taper : ":wq!"
+
+Si vous désirez annulé les modifs vous tapez ":q!" et recommencez.
+
