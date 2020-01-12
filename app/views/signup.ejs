@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+<% if (locals.error) { %>
+<p class="error">
+    <%= error %>
+</p>
+<% } %>
+
+<form method="POST">
+    <div class="row">
+        <div class="col">Prénom</div>
+        <div class="col"><input type="text" name="firstname"></div>
+    </div>
+    <div class="row">
+        <div class="col">Nom</div>
+        <div class="col"><input type="text" name="lastname"></div>
+    </div>
+    <div class="row">
+        <div class="col">Email</div>
+        <div class="col"><input type="email" name="email"></div>
+    </div>
+    <div class="row">
+        <div class="col">Mot de passe</div>
+        <div class="col"><input type="password" name="password"></div>
+    </div>
+    <div class="row">
+        <div class="col">Confirmation de mot de passe</div>
+        <div class="col"><input type="password" name="passwordConfirm"></div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn">S'inscrire</button>
+        </div>
+    </div>
+</form>
+
+<%- include('partials/footer') %>

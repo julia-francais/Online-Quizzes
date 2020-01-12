@@ -1,0 +1,13 @@
+
+<%- include('partials/header') %>
+
+<div class="row">
+<% for(let tag of tags) { %>
+  <div class="col">
+      <h3><a href="/tag/<%= tag.getId() %>"><%= tag.getName() %></a></h3>
+  </div>
+<% } %>
+</div>
+
+
+<%- include('partials/footer') %>

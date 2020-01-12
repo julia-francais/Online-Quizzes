@@ -1,0 +1,102 @@
+body {
+  font-family: Monospace, sans-serif;
+  background-color: #ccc;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 0.325rem 0 1rem;
+  color: blue;
+}
+
+h2 {
+  font-size: 2.4em;
+  margin: 0.325rem 0 0.625rem;
+  color: darkblue;
+}
+
+h3 {
+  font-size: 2em;
+  margin: 0.325rem 0 0.75rem;
+  color: darkcyan;
+}
+
+p {
+  margin: 0.625rem 0;
+}
+
+a {
+  color: yellowgreen;
+}
+
+.container {
+  width: 900px;
+  margin: auto;
+  background-color: white;
+  padding: 1.25rem;
+  margin-top: 0.625rem;
+  border: 1px solid #888;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row > .col {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  width: 25%;
+  margin: 1em;
+}
+
+.question {
+  margin: 0.625rem 1.25rem;
+}
+
+.question__question {
+  margin: 0.625rem 0;
+  font-weight: bold;
+}
+
+.level {
+  font-size: 0.8em;
+}
+
+.level--beginner {
+  color: darkgreen;
+}
+
+.level--medium {
+  color: darkgoldenrod;
+}
+
+.level--expert {
+  color: darkred;
+}
+
+.question__info {
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.question__choices {
+  margin: 0.625rem 0;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  margin: 0.625rem 0;
+  text-align: center;
+  color: red;
+  border: 2px solid red;
+  background-color: yellow;
+  font-size: 1.4em;
+  font-weight: bold;
+  padding: 0.325rem 0;
+  cursor: pointer;
+}
