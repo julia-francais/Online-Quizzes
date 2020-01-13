@@ -8,8 +8,11 @@ const adminController = {
         response.render('admin');
     },
 
-    adminPage2: (request, response) => {
-
+    addNewTag: (request, response) => {
+        console.log(request.session.user.role);
+        // if(request.session.user.role !== 'admin'){
+            response.render('newtag');
+        
     }
 
 };

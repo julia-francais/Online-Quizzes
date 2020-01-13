@@ -55,4 +55,10 @@ router.get('/profile', userController.profilePage)
 router.get('/admin', adminMiddleware, adminController.adminPage);
 // L'intéret de créer un middleware indépendant pour gérer l'accès admin, c'est qu'on pourrais l'utiliser facilement sur une autre route
 
+// Route permettant d'ajouter un nouveau tag lorsque l'on est admin
+router.get('/admin/newtag', adminMiddleware, adminController.addNewTag)
+
+// Router permettant d'ajouter un nouveau tag lorsque l'on est admin
+router.post('/admin/newtag', adminMiddleware, adminController.addNewTag)
+
 module.exports = router;
