@@ -9,10 +9,15 @@ const adminController = {
     },
 
     addNewTag: (request, response) => {
-        console.log(request.session.user.role);
-        // if(request.session.user.role !== 'admin'){
+        if(request.session.user.role === 'admin'){
             response.render('newtag');
-        
+        }else{
+            response.redirect('/login')
+        }
+    },
+
+    addNewTagInDatabase: (request, response) => {
+        console.log(request.body.tag)
     }
 
 };
