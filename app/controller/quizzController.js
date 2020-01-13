@@ -54,33 +54,61 @@ const quizzController = {
     },
 
     submitAnswers: async (request, response) => {
-            //    try {
-                const quizzId = parseInt(request.params.id);
-                const quizz = await Quizz.findByPk(quizzId, {
-                    include: [
-                        { association: "questions", include: ["good_answer"] },
-                    ]
-                });
 
+        const quizzId = parseInt(request.params.id);
+        const quizz = await Quizz.findByPk(quizzId, {
+            include: [
+                { association: "questions", include: ["good_answer"] },
+            ]
+        });
+        console.log(quizz.questions);
         let score= 0;
-        let good_answers= [];
+        let quizzGoodAnswers = [];
         let goodAnswerUser = [];
         let badAnswerUser = [];
-        for (let question of quizz.questions) {
-            good_answers.push(question.good_answer.getDescription())
+        let userAnswers=[];
+
+        for (let answer in request.body){
+            userAnswers.push(request.body[answer]);
         }
-        console.log(good_answers);
-            for (let question in request.body){
-                for(let answer of good_answers){
-                    if(request.body[question] === answer){ 
+        for (let question of quizz.questions) {
+            console.log(question);
+            quizzGoodAnswers.push(question.good_answer.getDescription())
+        }
+
+        for(let i=0; i<quizz.questions.length; i++){
+            if(userAnswers[i] === quizzGoodAnswers[i]){ 
                     score += 1;
-                    goodAnswerUser.push(answer)
-                    }
-                }
-            }
-            response.render('score', {score: score, goodAnswers: goodAnswerUser}); 
+                    goodAnswerUser.push(userAnswers[i]);
+                }else{
+                    badAnswerUser.push(userAnswers[i]);
+                } 
+        }        
+    response.render('score', {score: score, goodAnswers: goodAnswerUser, badAnswers: badAnswerUser}); 
 
     }
+
+
+
+
+
+
+
+
+        //     good_answers.push(question.good_answer.getDescription())
+        // }
+        // console.log(good_answers);
+        //     for (let question in request.body){
+        //         for(let answer of good_answers){
+        //             if(request.body[question] === answer){ 
+        //             score += 1;
+        //             goodAnswerUser.push(answer)
+        //             }
+        //         }
+        //     }
+        //     response.render('score', {score: score, goodAnswers: goodAnswerUser}); 
+
+    
 
 
 };
