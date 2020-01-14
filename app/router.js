@@ -59,6 +59,6 @@ router.get('/admin', adminMiddleware, adminController.adminPage);
 router.get('/admin/newtag', adminMiddleware, adminController.addNewTag)
 
 // Router permettant d'ajouter un nouveau tag lorsque l'on est admin
-router.post('/admin/newtag', adminMiddleware, adminController.addNewTag)
+router.post('/admin/newtag', adminController.addNewTagInDatabase)
 
 module.exports = router;

@@ -44,6 +44,11 @@ ul.answers{
   border: 1px solid #888;
 } 
 
+.error {
+  color: red;
+  padding-top: 1em;
+}
+
 .radio_buttons {
   display: inline-block;sssss
 }

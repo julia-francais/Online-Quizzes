@@ -1,3 +1,6 @@
+const Tag = require('../model/tag');
+
+
 const adminController = {
 
     adminPage: (request, response) => {
@@ -10,14 +13,36 @@ const adminController = {
 
     addNewTag: (request, response) => {
         if(request.session.user.role === 'admin'){
-            response.render('newtag');
+            response.render('newtag', { error: " "});
         }else{
             response.redirect('/login')
         }
     },
 
-    addNewTagInDatabase: (request, response) => {
+    addNewTagInDatabase: async(request, response) => {
         console.log(request.body.tag)
+        try {
+                if (request.body.tag === '') {
+                    return response.render('newtag', { formData: request.body, error: `La nouvelle categorie de quizz que vous souhaitez ajouter est vide.` });
+                }
+
+                const [tag, created] = await Tag.findOrCreate({
+                    where: {
+                        name: request.body.tag
+                    }
+                });
+                console.log('findorcreateapres');
+
+                if (!created) {
+                    console.log("deja");
+                    response.render('newtag', {error: "Cette categorie existe deja"});
+                } else {
+                    return response.render('newtag', {error: `La categorie ${request.body.tag} a bien ete creee`});
+                }
+        } catch (error) {
+            response.status(500).send(error);
+        }
+
     }
 
 };
