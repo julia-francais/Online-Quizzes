@@ -24,7 +24,7 @@
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
-    "pg": "^7.17.0",
+    "pg": "^7.18.2",
     "sequelize": "^5.21.3"
   }
 }
